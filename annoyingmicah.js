@@ -3,31 +3,30 @@
 function annoyingMicahFilter(message) {
 	var d = new Date();
 	d = d.getDate().toString();
-	var formatted;
-	var output = [];
+	var f_d;
+	var o = [];
 	for(i=0;i < d.length; i++) {
-	output.push(+d.charAt(i));
+		o.push(+d.charAt(i));
 	}
 
 	var j = function(n) {
-	if(output[n] == 0 || output[n] == 4 || output[n] == 5 || output[n] == 6 || output[n] == 7 || output[n] == 8 || output[n] == 9) {formatted = formatted || d+"th"; console.log(output[n])}
-	else if(output[n] == 1) {formatted = formatted || d+"st"}
-	else if(output[n] == 2) {formatted = formatted || d+"nd"}
-	else if(output[n] == 3) {formatted = formatted || d+"rd"}
+		if(o[n] == 0 || o[n] == 4 || o[n] == 5 || o[n] == 6 || o[n] == 7 || o[n] == 8 || o[n] == 9) {f_d = f_d || d+"th";}
+		else if(o[n] == 1) {f_d = f_d || d+"st"}
+		else if(o[n] == 2) {f_d = f_d || d+"nd"}
+		else if(o[n] == 3) {f_d = f_d || d+"rd"}
 	}
 
-	if (output.length == 1) {
+	if (o.length == 1) {
 		j(0);
 	}
-	else if (output.length == 2) {
+	else if (o.length == 2) {
 		j(1);
 	}
-	if(output[0] == 1 && output.length == 2) {
+	if(o[0] == 1 && o.length == 2) {
 		//if the number is a teen, always use "th"
-		formatted = d+"th";
-		console.log('active?')
+		f_d = d+"th";
 	}
-	console.log(output) 
-	return "MAY THE " + formatted + " BE WITH YOU!";
+
+	return "MAY THE " + f_d + " BE WITH YOU!";
 }
 annoyingMicahFilter()
