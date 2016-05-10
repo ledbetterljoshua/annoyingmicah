@@ -8,10 +8,21 @@
                 background: #000033;
                 color: #fff;
                 padding-top: 150px;
+                top: 0;
+                position: absolute;
+                width: 100%;
             }
 
             .annoying-message-container {
                 padding-top: 100px;
+            }
+            #add {
+                position: absolute;
+                top: 0;
+                padding: 10px;
+                text-decoration: underline;
+                font-size: 15px;
+                z-index: 99;
             }
 
             @media (max-width: 768px) {
@@ -27,7 +38,11 @@
         </style>
     </head>
     <body>
-
+        <div id="add" class="button">
+            <button id="addNew" class="btn btn-default" type="button">Add a message</button>
+            <input id="input" class="input hidden" type="text">
+            <button id="go" class="btn btn-default hidden" type="button">Go</button>
+        </div>
         <div id="annoying">
             <div class="container">
                 <div class="row">
@@ -45,18 +60,32 @@
 
         <script type="text/javascript">
             // Stole (and modified) from http://stackoverflow.com/a/901144
-            function getParameterByName(name) {
-                var url = window.location.href;
-                name = name.replace(/[\[\]]/g, "\\$&");
-                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-                    results = regex.exec(url);
-                if (!results) return null;
-                if (!results[2]) return '';
-                return decodeURIComponent(results[2].replace(/\+/g, " "));
-            }
+            (function(){
+                function getParameterByName(name) {
+                    var url = window.location.href;
+                    name = name.replace(/[\[\]]/g, "\\$&");
+                    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                        results = regex.exec(url);
+                    if (!results) return null;
+                    if (!results[2]) return '';
+                    return decodeURIComponent(results[2].replace(/\+/g, " "));
+                }
 
-            var message = getParameterByName('message');
-            document.getElementById('annoying-message').innerHTML = annoyingMicahFilter(message);
+                var buttonNew = document.getElementById("addNew");
+                var buttonGo = document.getElementById("go");
+                var input = document.getElementById("input");
+                buttonNew.onclick = function() {
+                    buttonNew.className = "hidden";
+                    buttonGo.className = "btn btn-default";
+                    input.className = "input";
+                }
+                buttonGo.onclick = function() {
+                    window.location.search = "message="+input.value.toUpperCase();
+                }
+
+                var message = getParameterByName('message');
+                document.getElementById('annoying-message').innerHTML = annoyingMicahFilter(message);
+            }())
         </script>
 
     </body>
