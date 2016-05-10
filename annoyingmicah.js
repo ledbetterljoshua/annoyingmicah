@@ -12,9 +12,14 @@ Number.prototype.ordinal = function(){
     return this.toString() + ord;
 };
 
+Date.prototype.getMonthName = function() {
+    var names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    return names[this.getMonth()];
+};
+
 function annoyingMicahFilter(message) {
     var today = new Date();
-    var dd = today.getDate().ordinal
-    return "MAY THE " + today.getDate().ordinal() + " BE WITH YOU!";
+    return today.getMonthName().toUpperCase() + " THE " + today.getDate().ordinal().toUpperCase() + " BE WITH YOU!";
 };
+
 console.log(annoyingMicahFilter());
