@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Annoy your friends!</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+        <style>
+            #annoying {
+                min-height: 100%;
+                background: #000033;
+                color: #fff;
+                padding-top: 150px;
+            }
+
+            .annoying-message-container {
+                padding-top: 100px;
+            }
+
+            @media (max-width: 768px) {
+                #annoying {
+                    padding-top: 80px;
+                }
+
+                .annoying-message-container {
+                    text-align: center;
+                    padding-top: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="annoying">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 annoying-message-container">
+                        <h1 id="annoying-message">Annoyance loading...</h1>
+                    </div>
+                    <div class="col-sm-6 col-md-5 col-md-offset-1">
+                        <img src="./img/han-solo.png" width="100%"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script   src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="./annoyingmicah.js"></script>
+
+        <script type="text/javascript">
+            (function($) {
+                $('#annoying-message').html(annoyingMicahFilter());
+            })(jQuery);
+        </script>
+
+    </body>
+</html>
