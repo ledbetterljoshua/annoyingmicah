@@ -19,7 +19,7 @@ Date.prototype.getMonthName = function() {
 
 function annoyingMicahFilter(message) {
     var today = new Date();
-    return message + " " today.getMonthName().toUpperCase() + " THE " + today.getDate().ordinal().toUpperCase() + " BE WITH YOU!";
+    return message + " " + today.getMonthName().toUpperCase() + " THE " + today.getDate().ordinal().toUpperCase() + " BE WITH YOU!";
 };
 
 console.log(annoyingMicahFilter("Happy birthday!"));
