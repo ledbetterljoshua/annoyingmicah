@@ -18,8 +18,9 @@ Date.prototype.getMonthName = function() {
 };
 
 function annoyingMicahFilter(message) {
-    var today = new Date();
-    return message + " " + today.getMonthName().toUpperCase() + " THE " + today.getDate().ordinal().toUpperCase() + " BE WITH YOU!";
+    var today = new Date(),
+        message = !!message ? message + " " : "";
+    return message + today.getMonthName().toUpperCase() + " THE " + today.getDate().ordinal().toUpperCase() + " BE WITH YOU!";
 };
 
 console.log(annoyingMicahFilter("Happy birthday!"));
