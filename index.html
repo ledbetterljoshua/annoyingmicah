@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <title>Annoy your friends!</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+        <style>
+            #annoying {
+                min-height: 100%;
+                background: #000033;
+                color: #fff;
+                padding-top: 150px;
+                top: 0;
+                position: absolute;
+                width: 100%;
+            }
+
+            .annoying-message-container {
+                padding-top: 100px;
+            }
+            #add {
+                position: absolute;
+                top: 0;
+                padding: 10px;
+                text-decoration: underline;
+                font-size: 15px;
+                z-index: 99;
+            }
+
+            @media (max-width: 768px) {
+                #annoying {
+                    padding-top: 80px;
+                }
+
+                .annoying-message-container {
+                    text-align: center;
+                    padding-top: 0;
+                }
+            }
+        </style>  
+    </head>
+    <body>
+        <div id="add" class="button">
+            <button id="addNew" class="btn btn-default" type="button">Add a message</button>
+            <input id="input" class="input hidden" type="text">
+            <button id="go" class="btn btn-default hidden" type="button">Go</button>
+        </div>
+        <div id="annoying">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 annoying-message-container">
+                        <h1 id="annoying-message">Annoyance loading...</h1>
+                    </div>
+                    <div class="col-sm-6 col-md-5 col-md-offset-1">
+                        <img src="./img/han-solo.png" width="100%"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="./annoyingmicah.js"></script>
+
+        <script type="text/javascript">
+            // Stole (and modified) from http://stackoverflow.com/a/901144
+            (function(){
+                function getParameterByName(name) {
+                    var url = window.location.href;
+                    name = name.replace(/[\[\]]/g, "\\$&");
+                    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                        results = regex.exec(url);
+                    if (!results) return null;
+                    if (!results[2]) return '';
+                    return decodeURIComponent(results[2].replace(/\+/g, " "));
+                }
+
+                var buttonNew = document.getElementById("addNew");
+                var buttonGo = document.getElementById("go");
+                var input = document.getElementById("input");
+                buttonNew.onclick = function() {
+                    buttonNew.className = "hidden";
+                    buttonGo.className = "btn btn-default";
+                    input.className = "input";
+                }
+                buttonGo.onclick = function() {
+                    window.location.search = "message="+input.value.toUpperCase();
+                }
+
+                var message = getParameterByName('message');
+                document.getElementById('annoying-message').innerHTML = annoyingMicahFilter(message);
+            }())
+        </script>
+
+    </body>
+</html>
