@@ -1,3 +1,5 @@
+//inital code written by Kyrsten Iley‎ 
+
 function annoyingMicahFilter(message) {
 	var d = new Date();
 	d = d.getDate().toString();
