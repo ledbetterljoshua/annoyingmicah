@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
     <head>
         <title>Annoy your friends!</title>
@@ -28,6 +29,49 @@
             @media (max-width: 768px) {
                 #annoying {
                     padding-top: 80px;
+=======
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Annoy your friends!</title>
+        <meta name="viewport" content="width=device-width; initial-scale=1.0;">
+        <meta property="og:image" content="http://ledbetterljoshua.github.io/annoyingmicah/img/han-solo.png"/>
+        <meta property="og:title" content="Be Like Micah; Annoy Your Friends"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+        <style>
+            body {
+                min-height: 100%;
+                background: #000033;
+                color: #fff;
+            }
+
+            #enterMessage {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+            }
+
+            #enterMessage .input-group {
+                width: 100%;
+            }
+
+            #enterMessage .input-group .input-group-btn {
+                width: 50px;
+            }
+
+            #annoying {
+                padding-top: 150px;
+            }
+
+            .annoying-message-container {
+                padding-top: 100px;
+            }
+
+            @media (max-width: 768px) {
+                #annoying, #messageInput {
+                    padding-top: 50px;
+>>>>>>> ef7d629d69134d861742e5beb1b8e40805b96bf2
                 }
 
                 .annoying-message-container {
@@ -35,6 +79,7 @@
                     padding-top: 0;
                 }
             }
+<<<<<<< HEAD
         </style>  
     </head>
     <body>
@@ -61,6 +106,39 @@
         <script type="text/javascript">
             // Stole (and modified) from http://stackoverflow.com/a/901144
             (function(){
+=======
+        </style>
+    </head>
+    <body>
+
+        <div class="container">
+
+            <div id="annoying" class="row">
+                <div class="col-sm-6 annoying-message-container">
+                    <h1 id="annoying-message">Annoyance loading...</h1>
+                </div>
+                <div class="col-sm-6 col-md-5 col-md-offset-1">
+                    <img src="./img/han-solo.png" width="100%"/>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="enterMessage" class="form-inline">
+            <div class="input-group">
+                <input type="text" class="form-control" id="inputMessage" placeholder="Add your own annoying message">
+                <span class="input-group-btn">
+                    <button id="annoyButton" type="button" class="btn btn-default">Annoy</button>
+                </span>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="./annoyingmicah.js"></script>
+        <script type="text/javascript">
+            // Stole (and modified) from http://stackoverflow.com/a/901144
+            (function($){
+>>>>>>> ef7d629d69134d861742e5beb1b8e40805b96bf2
                 function getParameterByName(name) {
                     var url = window.location.href;
                     name = name.replace(/[\[\]]/g, "\\$&");
@@ -71,6 +149,7 @@
                     return decodeURIComponent(results[2].replace(/\+/g, " "));
                 }
 
+<<<<<<< HEAD
                 var buttonNew = document.getElementById("addNew");
                 var buttonGo = document.getElementById("go");
                 var input = document.getElementById("input");
@@ -86,6 +165,24 @@
                 var message = getParameterByName('message');
                 document.getElementById('annoying-message').innerHTML = annoyingMicahFilter(message);
             }())
+=======
+                function setMessage() {
+                    window.location.search = "message=" + $input.val().toUpperCase();
+                }
+
+                var $input = $('#inputMessage'),
+                    message = getParameterByName('message');
+
+                $('#annoyButton').click(setMessage);
+                $input.keypress(function(event) {
+                    if (event.which === 13) {
+                        setMessage();
+                    }
+                });
+
+                $('#annoying-message').html(annoyingMicahFilter(message));
+            })(jQuery);
+>>>>>>> ef7d629d69134d861742e5beb1b8e40805b96bf2
         </script>
 
     </body>
