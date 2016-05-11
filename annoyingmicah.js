@@ -8,11 +8,7 @@ Number.prototype.ordinal = function(){
         case '2': ord = numStr.slice(-2) === '12' ? 'th' : 'nd'; break;
         case '3': ord = numStr.slice(-2) === '13' ? 'th' : 'rd'; break;
         default: ord = 'th'; break;
-<<<<<<< HEAD
-    } 
-=======
     }
->>>>>>> ef7d629d69134d861742e5beb1b8e40805b96bf2
     return this.toString() + ord;
 };
 
